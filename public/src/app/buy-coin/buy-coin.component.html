@@ -1,0 +1,16 @@
+<div class="bg-light mt-3 p-3">
+    <h4 class="d-inline-block display-4">Buy XycloCoins</h4>
+    <h3 class="d-inline-block offset-7">Total Coin: {{ coinOwned }}</h3>
+    <p class="lead font-weight-bold">Here you can buy XycloCoins by answering some question.</p>
+  
+    <p class="text-{{color}} text-center  mt-5 mb-0">{{ displayMsg }}</p>
+  
+    <div *ngIf="question" class="container col-6 bg-secondary rounded text-light p-3">
+  
+      <form action="">
+        <h4>{{ question.results[(num)].question }}</h4>
+        <p *ngFor="let option of possibleAnswers" class="ml-4"> <input type="radio" name="name" [(ngModel)]="chosenAnswer" [value]="option" class="form-check-input">{{ option }} </p>
+        <button (click)="submitForm()" class="btn btn-success col-12">Buy</button>
+      </form> 
+    </div>
+  </div>

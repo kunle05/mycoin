@@ -1,0 +1,28 @@
+<div class="bg-light mt-3 p-3">
+  <h4 class="d-inline-block display-4">Mine XycloCoins</h4>
+  <h3 class="d-inline-block offset-7">Total Coin: {{ coinOwned }}</h3>
+
+  <p class="lead font-weight-bold">Here you can browse all XycloCoins transactions.</p>
+
+  <div *ngIf="allTransactions" class="container col-6">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Action</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let trans of allTransactions">
+          <td>{{ trans.action }}</td>
+          <td>{{ trans.amount }}</td>
+          <td>{{ trans.value }}</td>
+          <td><a [routerLink]="['transaction', trans.id]" class="btn btn-outline-primary"> Details </a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>
